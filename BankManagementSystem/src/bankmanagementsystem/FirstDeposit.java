@@ -9,12 +9,12 @@ import javax.swing.ImageIcon;
  *
  * @author Yuan Dimianta
  */
-public class Deposit extends javax.swing.JFrame {
+public class FirstDeposit extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
-    public Deposit() {
+    public FirstDeposit() {
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -30,7 +30,6 @@ public class Deposit extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         setorBtn = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
         setorLbl = new javax.swing.JTextField();
         background = new javax.swing.JLabel();
 
@@ -51,14 +50,6 @@ public class Deposit extends javax.swing.JFrame {
         });
         getContentPane().add(setorBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 140, 30));
 
-        backBtn.setText("KEMBALI");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 140, 30));
-
         setorLbl.setBackground(new java.awt.Color(255, 255, 255));
         setorLbl.setForeground(new java.awt.Color(0, 0, 0));
         setorLbl.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -71,11 +62,6 @@ public class Deposit extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        new Menu().setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
     private void setorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorBtnActionPerformed
         // TODO add your handling code here:
         long balance = 0;
@@ -85,7 +71,7 @@ public class Deposit extends javax.swing.JFrame {
             System.out.println("Format nomor telepon tidak valid");
         }
         Conn.setorTunai(balance);
-        new Menu().setVisible(true);
+        new LoginPage().setVisible(true);
         dispose();
     }//GEN-LAST:event_setorBtnActionPerformed
 
@@ -106,26 +92,25 @@ public class Deposit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Deposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FirstDeposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Deposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FirstDeposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Deposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FirstDeposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Deposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FirstDeposit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Deposit().setVisible(true);
+                new FirstDeposit().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBtn;
     private javax.swing.JLabel background;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton setorBtn;
