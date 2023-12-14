@@ -4,6 +4,7 @@
  */
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,14 +30,14 @@ public class Withdraw extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        anotherAmmountBtn = new javax.swing.JButton();
+        oneHundredBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
+        twoHundredBtn = new javax.swing.JButton();
+        oneMillionBtn = new javax.swing.JButton();
+        fiveMillionBtn = new javax.swing.JButton();
+        fiveHundredBtn = new javax.swing.JButton();
+        twoMillionBtn = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,44 +49,69 @@ public class Withdraw extends javax.swing.JFrame {
         jLabel1.setText("Please Select Your Transaction");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
-        jButton1.setText("JUMLAH LAIN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        anotherAmmountBtn.setText("JUMLAH LAIN");
+        anotherAmmountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                anotherAmmountBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 140, 30));
+        getContentPane().add(anotherAmmountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 140, 30));
 
-        jButton2.setText("Rp.100.000");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 140, 30));
-
-        jButton3.setText("KEMBALI");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        oneHundredBtn.setText("Rp.100.000");
+        oneHundredBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                oneHundredBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 140, 30));
+        getContentPane().add(oneHundredBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 140, 30));
 
-        jButton5.setText("Rp.200.000");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 140, 30));
-
-        jButton4.setText("Rp.1.000.000");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 140, 30));
-
-        jButton6.setText("Rp.5.000.000");
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 140, 30));
-
-        jButton7.setText("Rp.500.000");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        backBtn.setText("KEMBALI");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                backBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 140, 30));
+        getContentPane().add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 140, 30));
 
-        jButton8.setText("Rp.2.000.000");
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 140, 30));
+        twoHundredBtn.setText("Rp.200.000");
+        twoHundredBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoHundredBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(twoHundredBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 140, 30));
+
+        oneMillionBtn.setText("Rp.1.000.000");
+        oneMillionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneMillionBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(oneMillionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 140, 30));
+
+        fiveMillionBtn.setText("Rp.5.000.000");
+        fiveMillionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveMillionBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fiveMillionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 140, 30));
+
+        fiveHundredBtn.setText("Rp.500.000");
+        fiveHundredBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveHundredBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fiveHundredBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 140, 30));
+
+        twoMillionBtn.setText("Rp.2.000.000");
+        twoMillionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoMillionBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(twoMillionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 140, 30));
 
         ImageIcon image = new ImageIcon("D:\\Yuan Dimianta\\Kuliah\\Semester 5\\PBO\\Praktikum\\projectPBO\\BankManagementSystem\\src\\Assets\\atm.jpg");
         background.setIcon(image); // NOI18N
@@ -94,17 +120,71 @@ public class Withdraw extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        new Menu().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void anotherAmmountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anotherAmmountBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new AntherAmount().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_anotherAmmountBtnActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void fiveHundredBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveHundredBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        if(Conn.balance > 500000 && Conn.balance - 500000 >= 50000){
+                Conn.tarikTunai(500000);
+        } else {
+            JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
+        }
+    }//GEN-LAST:event_fiveHundredBtnActionPerformed
+
+    private void oneHundredBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredBtnActionPerformed
+        // TODO add your handling code here:
+        if(Conn.balance > 100000 && Conn.balance - 100000 >= 50000){
+           Conn.tarikTunai(100000);
+        } else {
+            JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
+        }
+    }//GEN-LAST:event_oneHundredBtnActionPerformed
+
+    private void twoHundredBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoHundredBtnActionPerformed
+        // TODO add your handling code here:
+        if(Conn.balance > 200000 && Conn.balance - 200000 >= 50000){
+           Conn.tarikTunai(200000);
+        } else {
+            JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
+        }
+    }//GEN-LAST:event_twoHundredBtnActionPerformed
+
+    private void oneMillionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneMillionBtnActionPerformed
+        // TODO add your handling code here:
+        if(Conn.balance > 1000000 && Conn.balance - 1000000 >= 50000){
+           Conn.tarikTunai(1000000);
+        } else {
+            JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
+        }
+    }//GEN-LAST:event_oneMillionBtnActionPerformed
+
+    private void fiveMillionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveMillionBtnActionPerformed
+        // TODO add your handling code here:
+        if(Conn.balance > 5000000 && Conn.balance - 5000000 >= 50000){
+           Conn.tarikTunai(5000000);
+        } else {
+            JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
+        }
+    }//GEN-LAST:event_fiveMillionBtnActionPerformed
+
+    private void twoMillionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoMillionBtnActionPerformed
+        // TODO add your handling code here:
+        if(Conn.balance > 2000000 && Conn.balance - 2000000 >= 50000){
+           Conn.tarikTunai(2000000);
+        } else {
+            JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
+        }
+    }//GEN-LAST:event_twoMillionBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,15 +222,15 @@ public class Withdraw extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton anotherAmmountBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton fiveHundredBtn;
+    private javax.swing.JButton fiveMillionBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton oneHundredBtn;
+    private javax.swing.JButton oneMillionBtn;
+    private javax.swing.JButton twoHundredBtn;
+    private javax.swing.JButton twoMillionBtn;
     // End of variables declaration//GEN-END:variables
 }
