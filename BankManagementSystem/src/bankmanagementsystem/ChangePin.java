@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -10,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Yuan Dimianta
  */
-public class ChangePin extends javax.swing.JFrame {
+public class ChangePin extends javax.swing.JFrame implements MouseMotionListener {
 
     /**
      * Creates new form Menu
@@ -18,6 +21,8 @@ public class ChangePin extends javax.swing.JFrame {
     public ChangePin() {
         initComponents();
         setLocationRelativeTo(this);
+        addMouseMotionListener(this);
+        Session.setFrame(this);
     }
 
     /**
@@ -127,11 +132,15 @@ public class ChangePin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String pin = pinField.getText();
         String confirmPin = confirmPinField.getText();
-        if (pin.equals(confirmPin)) {
-            int fixedPin = Integer.parseInt(pin);
-            Conn.changePin(fixedPin);
+        if(pinField.getText().length() < 6){
+            JOptionPane.showMessageDialog(null, "PIN harus 6 digit");
         } else {
-            JOptionPane.showMessageDialog(null, "PIN tidak sesuai");
+            if (pin.equals(confirmPin)) {
+                int fixedPin = Integer.parseInt(pin);
+                Conn.changePin(fixedPin);
+            } else {
+                JOptionPane.showMessageDialog(null, "PIN tidak sesuai");
+            }
         }
     }// GEN-LAST:event_changeBtnActionPerformed
 
@@ -186,4 +195,15 @@ public class ChangePin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField pinField;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        // TODO Auto-generated method stub
+        AFKChecker.resetTimer();
+    }
 }

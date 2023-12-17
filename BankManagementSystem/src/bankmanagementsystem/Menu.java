@@ -3,13 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author Yuan Dimianta
  */
-public class Menu extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame implements MouseMotionListener{
 
     /**
      * Creates new form Menu
@@ -17,6 +20,9 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         setLocationRelativeTo(this);
+        addMouseMotionListener(this);
+        Session.setFrame(this);
+
     }
 
     /**
@@ -62,7 +68,7 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(pinChangeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 140, 30));
 
-        transferBtn.setText("TANSFER");
+        transferBtn.setText("TRANSFER");
         transferBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 transferBtnActionPerformed(evt);
@@ -173,4 +179,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton transferBtn;
     private javax.swing.JButton withdrawBtn;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        // TODO Auto-generated method stub
+        AFKChecker.resetTimer();
+    }
 }

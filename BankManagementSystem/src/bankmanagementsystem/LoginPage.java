@@ -16,7 +16,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -158,10 +158,11 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
+        AFKChecker.startAfkCheck();
         String text = cardNumberLbl.getText();
         String text2 = pinLbl.getText();
         int pin = 0;
-
+        
         try {
             cardNum = Long.parseLong(text);
             System.out.println("Nomor kartu: " + cardNum);
@@ -178,6 +179,7 @@ public class LoginPage extends javax.swing.JFrame {
             return;
         } 
         if (Conn.isValidUser(cardNum, pin)) {
+            Session.startSession();
             new Menu().setVisible(true);
             dispose();
             return; 
@@ -213,6 +215,9 @@ public class LoginPage extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
+        Session session = new Session();
+        AFKChecker afkChecker = new AFKChecker();
         /* Set the Nimbus look and feel */
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
         // (optional) ">

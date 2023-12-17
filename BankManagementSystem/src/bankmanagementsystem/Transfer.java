@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -10,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Yuan Dimianta
  */
-public class Transfer extends javax.swing.JFrame {
+public class Transfer extends javax.swing.JFrame implements MouseMotionListener {
 
     /**
      * Creates new form Menu
@@ -18,6 +21,8 @@ public class Transfer extends javax.swing.JFrame {
     public Transfer() {
         initComponents();
         setLocationRelativeTo(this);
+        addMouseMotionListener(this);
+        Session.setFrame(this);
     }
 
     /**
@@ -69,6 +74,11 @@ public class Transfer extends javax.swing.JFrame {
 
         transderToLbl.setBackground(new java.awt.Color(255, 255, 255));
         transderToLbl.setForeground(new java.awt.Color(0, 0, 0));
+        transderToLbl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                transderToLblKeyTyped(evt);
+            }
+        });
         getContentPane().add(transderToLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 330, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -97,6 +107,15 @@ public class Transfer extends javax.swing.JFrame {
     private void transferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBtnActionPerformed
         // TODO add your handling code here:
         long cardNum = Long.parseLong(transderToLbl.getText()); 
+        if(transderToLbl.getText().length() < 16){
+            JOptionPane.showMessageDialog(null, "Card Number harus 16 digit");
+            return;
+        }
+
+        if(amountLbl.getText().length() < 1){
+            JOptionPane.showMessageDialog(null, "Nominal transfer tidak boleh kosong");
+            return;
+        }
         if(Conn.cekCardNumber(cardNum)){
             long amount = Long.parseLong(amountLbl.getText());
             Conn.transfer(cardNum, amount);
@@ -106,6 +125,15 @@ public class Transfer extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_transferBtnActionPerformed
+
+    private void transderToLblKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_transderToLblKeyTyped
+        // TODO add your handling code here:        
+        char input = evt.getKeyChar();
+        if ((!Character.isDigit(input)) || (transderToLbl.getText().length() > 15)) {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_transderToLblKeyTyped
 
     /**
      * @param args the command line arguments
@@ -152,4 +180,15 @@ public class Transfer extends javax.swing.JFrame {
     private javax.swing.JTextField transderToLbl;
     private javax.swing.JButton transferBtn;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        // TODO Auto-generated method stub
+        AFKChecker.resetTimer();
+    }
 }

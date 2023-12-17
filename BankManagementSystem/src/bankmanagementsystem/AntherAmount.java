@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -10,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Yuan Dimianta
  */
-public class AntherAmount extends javax.swing.JFrame {
+public class AntherAmount extends javax.swing.JFrame implements MouseMotionListener {
 
     /**
      * Creates new form Menu
@@ -18,6 +21,8 @@ public class AntherAmount extends javax.swing.JFrame {
     public AntherAmount() {
         initComponents();
         setLocationRelativeTo(this);
+        addMouseMotionListener(this);
+        Session.setFrame(this);
     }
 
     /**
@@ -94,6 +99,11 @@ public class AntherAmount extends javax.swing.JFrame {
         // TODO add your handling code here:
         amountLbl.getText();
         long amount = Integer.parseInt(amountLbl.getText());
+        int amountWithdraw = Integer.parseInt(amountLbl.getText());
+        if(amountWithdraw % 100000 != 0){
+            JOptionPane.showMessageDialog(null, "Jumlah uang harus kelipatan 100.000");
+            return;
+        }
         if(Conn.balance > amount && Conn.balance - amount >= 50000){
            Conn.tarikTunai(amount);
         } else {
@@ -148,4 +158,15 @@ public class AntherAmount extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton withdrawBtn;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        // TODO Auto-generated method stub
+        AFKChecker.resetTimer();
+    }
 }
