@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -10,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Yuan Dimianta
  */
-public class Withdraw extends javax.swing.JFrame {
+public class Withdraw extends javax.swing.JFrame implements MouseMotionListener {
 
     /**
      * Creates new form Menu
@@ -18,6 +21,8 @@ public class Withdraw extends javax.swing.JFrame {
     public Withdraw() {
         initComponents();
         setLocationRelativeTo(this);
+        addMouseMotionListener(this);
+        Session.setFrame(this);
     }
 
     /**
@@ -134,7 +139,7 @@ public class Withdraw extends javax.swing.JFrame {
 
     private void fiveHundredBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveHundredBtnActionPerformed
         // TODO add your handling code here:
-        if(Conn.balance > 500000 && Conn.balance - 500000 >= 50000){
+        if(Conn.getBalance() > 500000 && Conn.getBalance() - 500000 >= 50000){
                 Conn.tarikTunai(500000);
         } else {
             JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
@@ -143,7 +148,7 @@ public class Withdraw extends javax.swing.JFrame {
 
     private void oneHundredBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredBtnActionPerformed
         // TODO add your handling code here:
-        if(Conn.balance > 100000 && Conn.balance - 100000 >= 50000){
+        if(Conn.getBalance() > 100000 && Conn.getBalance() - 100000 >= 50000){
            Conn.tarikTunai(100000);
         } else {
             JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
@@ -152,7 +157,7 @@ public class Withdraw extends javax.swing.JFrame {
 
     private void twoHundredBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoHundredBtnActionPerformed
         // TODO add your handling code here:
-        if(Conn.balance > 200000 && Conn.balance - 200000 >= 50000){
+        if(Conn.getBalance() > 200000 && Conn.getBalance() - 200000 >= 50000){
            Conn.tarikTunai(200000);
         } else {
             JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
@@ -161,7 +166,7 @@ public class Withdraw extends javax.swing.JFrame {
 
     private void oneMillionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneMillionBtnActionPerformed
         // TODO add your handling code here:
-        if(Conn.balance > 1000000 && Conn.balance - 1000000 >= 50000){
+        if(Conn.getBalance() > 1000000 && Conn.getBalance() - 1000000 >= 50000){
            Conn.tarikTunai(1000000);
         } else {
             JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
@@ -170,7 +175,7 @@ public class Withdraw extends javax.swing.JFrame {
 
     private void fiveMillionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveMillionBtnActionPerformed
         // TODO add your handling code here:
-        if(Conn.balance > 5000000 && Conn.balance - 5000000 >= 50000){
+        if(Conn.getBalance() > 5000000 && Conn.getBalance() - 5000000 >= 50000){
            Conn.tarikTunai(5000000);
         } else {
             JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
@@ -179,7 +184,7 @@ public class Withdraw extends javax.swing.JFrame {
 
     private void twoMillionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoMillionBtnActionPerformed
         // TODO add your handling code here:
-        if(Conn.balance > 2000000 && Conn.balance - 2000000 >= 50000){
+        if(Conn.getBalance() > 2000000 && Conn.getBalance() - 2000000 >= 50000){
            Conn.tarikTunai(2000000);
         } else {
             JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");
@@ -233,4 +238,15 @@ public class Withdraw extends javax.swing.JFrame {
     private javax.swing.JButton twoHundredBtn;
     private javax.swing.JButton twoMillionBtn;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        // TODO Auto-generated method stub
+        AFKChecker.resetTimer();
+    }
 }

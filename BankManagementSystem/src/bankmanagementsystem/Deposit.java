@@ -73,9 +73,14 @@ public class Deposit extends javax.swing.JFrame implements MouseMotionListener {
         background.setIcon(image); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 960, 870));
 
+        if(LoginPage.getCardNum() == null ){
+            backBtn.setEnabled(false);
+            backBtn.setVisible(false);
+        }
+        
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         new Menu().setVisible(true);
@@ -90,8 +95,13 @@ public class Deposit extends javax.swing.JFrame implements MouseMotionListener {
             System.out.println("Format nomor telepon tidak valid");
         }
         Conn.setorTunai(balance);
-        new Menu().setVisible(true);
-        dispose();
+        if(LoginPage.getCardNum() == null ){
+            new LoginPage().setVisible(true);
+            dispose();
+        } else {
+            new Menu().setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_setorBtnActionPerformed
 
     /**

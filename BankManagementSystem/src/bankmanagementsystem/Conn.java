@@ -8,15 +8,45 @@ public class Conn {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/atm_simulator";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-    public static long cardNumber;
-    public static int pin;
-    public static String name;
-    public static String address;
-    public static Date birth;
-    public static long phoneNumber;
-    public static String gender;
-    public static long balance;
-    public static Statement statement;
+    private static long cardNumber;
+    private static int pin;
+    private static String name;
+    private static String address;
+    private static Date birth;
+    private static long phoneNumber;
+    private static String gender;
+    private static long balance;
+    private static Statement statement;
+    
+    public static long getBalance() {
+        return balance;
+    }
+    public static void setBalance(long balance) {
+        Conn.balance = balance;
+    }
+
+    public static long getCardNumber() {
+        return Conn.cardNumber;
+    }
+    public static void setCardNumber(long cardNumber) {
+        Conn.cardNumber = cardNumber;
+    }
+
+    public static void setPin(int pin) {
+        Conn.pin = pin;
+    }
+    public static int getPin(){
+        return Conn.pin;
+    } 
+
+    public static void setName(String name){
+        Conn.name = name;
+    }
+    public static String getName(){
+        return Conn.name;
+    }
+
+    
 
     private static Connection connect() throws Exception {
         return DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -25,15 +55,19 @@ public class Conn {
     public static boolean isValidUser(long cardNumb, int pin) {
         boolean found = false;
         try (Connection conn = connect()) {
-            String query = "select * from user where cardNumber = '" + cardNumb + "' and PIN = '" + pin + "'";
-            statement = conn.createStatement();
-            ResultSet set = statement.executeQuery(query);
-            if (set.next()) {
-                JOptionPane.showMessageDialog(null, "Login berhasil");
-                found = true;
-                getAllData();
-                cardNumber = cardNumb;
+            String query = "select * from user where cardnumber = ? and Pin = ?";
+            try(PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setLong(1, cardNumb);
+                statement.setInt(2, pin);
+                try(ResultSet set = statement.executeQuery()){
+                    if (set.next()) {
+                        JOptionPane.showMessageDialog(null, "Login berhasil");
+                        found = true;
+                        getAllData();
+                    }
+                }
             }
+        
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,11 +77,15 @@ public class Conn {
      public static boolean cekCardNumber(long cardNumb) {
         boolean found = false;
         try (Connection conn = connect()) {
-            String query = "select * from user where cardNumber = '" + cardNumb + "'";
-            statement = conn.createStatement();
-            ResultSet set = statement.executeQuery(query);
-            if (set.next()) {
-                found = true;
+            String query = "select * from user where cardNumber = ?";
+            try(PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setLong(1, cardNumb);
+                try(ResultSet set = statement.executeQuery()){
+                    if (set.next()) {
+                        found = true;
+                    }
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +101,7 @@ public class Conn {
                 try (ResultSet resultSet = statement.executeQuery()) {
                     return !resultSet.next();
                 }
-            }
+            } 
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -81,30 +119,17 @@ public class Conn {
         return combinedNumber;
     }
 
-    public static int generatePIN() {
-        Random random = new Random();
-
-        int combinedNumber = 0;
-        for (int i = 0; i < 6; i++) {
-            int digit = random.nextInt(10);
-            combinedNumber = combinedNumber * 10 + digit;
-        }
-        return combinedNumber;
-    }
-
     public static boolean isBalanceZero() {
         boolean isZero = false;
 
         try (Connection conn = connect()) {
-            String sql = "SELECT * FROM user WHERE Balance = 0";
+            String query = "SELECT * FROM user WHERE Balance = 0";
 
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            isZero = resultSet.next(); // Set isZero menjadi true jika ada baris dengan Balance = 0
+            isZero = resultSet.next();
 
-            resultSet.close();
-            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -112,20 +137,29 @@ public class Conn {
         return isZero;
     }
 
-    public static void insertUser(String name, String alamat, String birth, String phone, String gender) {
+    public static void insertUser(int pin, String name, String alamat, String birth, String phone, String gender, String email) {
         cardNumber = generateCardNumber();
-        pin = generatePIN();
         int balance = 0;
-        try (Connection conn = connect()) {
-            String query = "insert into user values('" + cardNumber + "','" + pin + "','" + name + "','" + alamat
-                    + "','" + birth + "','" + phone + "','" + gender + "','" + balance + "')";
-            statement = conn.createStatement();
-            int rowsAffected = statement.executeUpdate(query);
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Nomor Kartu : " + Conn.cardNumber + "\nPIN : " + Conn.pin);
-                return;
+        try(Connection conn = connect()){
+            String query = "insert into user values (?,?,?,?,?,?,?,?,?)";
+            PreparedStatement statement = conn.prepareStatement(query);
+            statement.setLong(1, cardNumber);
+            statement.setInt(2, pin);
+            statement.setString(3, name);
+            statement.setString(4, alamat);
+            statement.setString(5, birth);
+            statement.setString(6, phone);
+            statement.setString(7, gender);
+            statement.setLong(8, balance);
+            statement.setString(9, email);
+
+            int rowsAffected = statement.executeUpdate();
+             if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Register Berhasil\nNomor Kartu : " + Conn.cardNumber + "\nPIN : " + RegisterPage.getPin());
+            } else {
+                JOptionPane.showMessageDialog(null, "Register Gagal");
             }
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -159,7 +193,7 @@ public class Conn {
             statement.setLong(2, cardNumber);
 
             int rowsAffected = statement.executeUpdate();
-
+            System.out.println("Rows : " + rowsAffected);
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Berhasil Tarik Tunai");
             } else {
@@ -170,19 +204,24 @@ public class Conn {
         }
     }
 
+
+
     public static void getAllData() {
         try (Connection conn = connect()) {
-            String query = "select * from user where cardNumber = '" + LoginPage.cardNum + "'";
-            statement = conn.createStatement();
-            ResultSet set = statement.executeQuery(query);
-            while (set.next()) {
-                cardNumber = set.getLong("cardNumber");
-                pin = set.getInt("pin");
-                name = set.getString("Name");
-                address = set.getString("Alamat");
-                phoneNumber = set.getLong("Phone");
-                gender = set.getString("Gender");
-                balance = set.getLong("Balance");
+            String query = "select * from user where cardNumber = ?";
+            try(PreparedStatement statement = conn.prepareStatement(query)){
+                statement.setLong(1, LoginPage.getCardNum());
+                try(ResultSet set = statement.executeQuery()){
+                    while (set.next()) {
+                        cardNumber = set.getLong("cardNumber");
+                        pin = set.getInt("pin");
+                        name = set.getString("Name");
+                        address = set.getString("Alamat");
+                        phoneNumber = set.getLong("Phone");
+                        gender = set.getString("Gender");
+                        balance = set.getLong("Balance");
+                    }
+                }
             }
         } catch (Exception e) {
             {

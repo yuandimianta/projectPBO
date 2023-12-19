@@ -19,7 +19,7 @@ public class AFKChecker implements Runnable {
                 afkTime--;
                 System.out.println(afkTime);
                 if (afkTime == 0) {
-                    Conn.cardNumber = 0;
+                    Conn.setCardNumber(0);
                     stop();
                     int result = JOptionPane.showConfirmDialog(null, "Apakah anda perlu waktu tambahan?",
                             "Konfirmasi",

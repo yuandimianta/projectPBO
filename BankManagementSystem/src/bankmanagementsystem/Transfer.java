@@ -79,6 +79,11 @@ public class Transfer extends javax.swing.JFrame implements MouseMotionListener 
                 transderToLblKeyTyped(evt);
             }
         });
+        amountLbl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                amountLblKeyTyped(evt);
+            }
+        });
         getContentPane().add(transderToLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 330, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -107,6 +112,7 @@ public class Transfer extends javax.swing.JFrame implements MouseMotionListener 
     private void transferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBtnActionPerformed
         // TODO add your handling code here:
         long cardNum = Long.parseLong(transderToLbl.getText()); 
+        long amount = Long.parseLong(amountLbl.getText());
         if(transderToLbl.getText().length() < 16){
             JOptionPane.showMessageDialog(null, "Card Number harus 16 digit");
             return;
@@ -117,8 +123,11 @@ public class Transfer extends javax.swing.JFrame implements MouseMotionListener 
             return;
         }
         if(Conn.cekCardNumber(cardNum)){
-            long amount = Long.parseLong(amountLbl.getText());
-            Conn.transfer(cardNum, amount);
+            if(Conn.getBalance() - amount >= 50000){
+                Conn.transfer(cardNum, amount);
+            }else {
+                JOptionPane.showMessageDialog(null, "Saldo tidak mencukupi");
+            }
             return;
         }else{
             JOptionPane.showMessageDialog(null, "Nomor rekening tidak ditemukan");
@@ -134,6 +143,14 @@ public class Transfer extends javax.swing.JFrame implements MouseMotionListener 
         }
         
     }//GEN-LAST:event_transderToLblKeyTyped
+    private void amountLblKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amountLblKeyTyped
+        // TODO add your handling code here:        
+        char input = evt.getKeyChar();
+        if ((!Character.isDigit(input))) {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_amountLblKeyTyped
 
     /**
      * @param args the command line arguments

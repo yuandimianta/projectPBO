@@ -104,7 +104,7 @@ public class AntherAmount extends javax.swing.JFrame implements MouseMotionListe
             JOptionPane.showMessageDialog(null, "Jumlah uang harus kelipatan 100.000");
             return;
         }
-        if(Conn.balance > amount && Conn.balance - amount >= 50000){
+        if(Conn.getBalance() > amount && Conn.getBalance() - amount >= 50000){
            Conn.tarikTunai(amount);
         } else {
             JOptionPane.showMessageDialog(null, "Saldo anda tidak mencukupi");

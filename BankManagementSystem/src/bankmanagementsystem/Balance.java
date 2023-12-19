@@ -5,7 +5,6 @@
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
-
 import javax.swing.ImageIcon;
 
 /**
@@ -92,7 +91,7 @@ public class Balance extends javax.swing.JFrame implements MouseMotionListener {
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 960, 870));
 
         Conn.getAllData();
-        balanceLbl.setText("Rp" + Long.toString(Conn.balance));
+        balanceLbl.setText("Rp" + Long.toString(Conn.getBalance()));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

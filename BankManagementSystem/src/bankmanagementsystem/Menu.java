@@ -41,6 +41,7 @@ public class Menu extends javax.swing.JFrame implements MouseMotionListener{
         transferBtn = new javax.swing.JButton();
         withdrawBtn = new javax.swing.JButton();
         balanceBtn = new javax.swing.JButton();
+        cancelBtn = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,6 +93,14 @@ public class Menu extends javax.swing.JFrame implements MouseMotionListener{
         });
         getContentPane().add(balanceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 140, 30));
 
+        cancelBtn.setText("BATAL");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 140, 30));
+
         ImageIcon image = new ImageIcon("D:\\Yuan Dimianta\\Kuliah\\Semester 5\\PBO\\Praktikum\\projectPBO\\BankManagementSystem\\src\\Assets\\atm.jpg");
         background.setIcon(image); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 960, 870));
@@ -110,6 +119,11 @@ public class Menu extends javax.swing.JFrame implements MouseMotionListener{
         new Transfer().setVisible(true);
         dispose();
     }//GEN-LAST:event_transferBtnActionPerformed
+
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void setorBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_setorBtnActionPerformed
         // TODO add your handling code here:
@@ -173,6 +187,7 @@ public class Menu extends javax.swing.JFrame implements MouseMotionListener{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton balanceBtn;
+    private javax.swing.JButton cancelBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton pinChangeBtn;
     private javax.swing.JButton setorBtn;

@@ -13,15 +13,15 @@ public class Session implements Runnable {
         thread = new Thread(this);
 
     }
-    @Override
+    
     public void run(){
         while(thread!=null){
             try{
                 thread.sleep(1000);
                 sessionTime--;
-                // System.out.println(sessionTime);
+                System.out.println(sessionTime);
                 if(sessionTime==0){
-                    Conn.cardNumber = 0;
+                    Conn.setCardNumber(0);
                     stop();
                     JOptionPane.showMessageDialog(null, "Session Expired");
                     new LoginPage().setVisible(true);
@@ -33,6 +33,7 @@ public class Session implements Runnable {
             }
         }
     }
+
     public static void stop(){
         thread = null;
     }

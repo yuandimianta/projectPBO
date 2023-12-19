@@ -32,6 +32,7 @@ public class RegisterPage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -39,48 +40,60 @@ public class RegisterPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblNama = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        lblAlamat = new javax.swing.JTextField();
+        emailLbl = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblBirth = new com.toedter.calendar.JDateChooser();
-        lblPhone = new javax.swing.JTextField();
+        addressLbl = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         maleBtn = new javax.swing.JRadioButton();
         femaleBtn = new javax.swing.JRadioButton();
         regisBtn = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        pinLbl = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        phoneLbl = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setBackground(new java.awt.Color(242, 242, 242));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registration Form");
 
+        lblNama.setBackground(new java.awt.Color(255, 255, 255));
+        lblNama.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Nama");
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nama:");
+
+        emailLbl.setBackground(new java.awt.Color(255, 255, 255));
+        emailLbl.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Alamat");
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Email Address:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Tanggal Lahir");
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Date of Birth:");
 
-        lblPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblPhoneActionPerformed(evt);
-            }
-        });
-        lblPhone.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                lblPhoneKeyTyped(evt);
-            }
-        });
+        lblBirth.setBackground(new java.awt.Color(242, 242, 242));
+        lblBirth.setForeground(new java.awt.Color(0, 0, 0));
+
+        addressLbl.setBackground(new java.awt.Color(255, 255, 255));
+        addressLbl.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Jenis Kelamin");
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Gender:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Nomor Telephone");
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Address:");
 
         genderBtn.add(maleBtn);
         maleBtn.setText("Laki-laki");
@@ -92,7 +105,15 @@ public class RegisterPage extends javax.swing.JFrame {
 
         genderBtn.add(femaleBtn);
         femaleBtn.setText("Perempuan");
+        femaleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleBtnActionPerformed(evt);
+            }
+        });
 
+        regisBtn.setBackground(new java.awt.Color(255, 255, 255));
+        regisBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        regisBtn.setForeground(new java.awt.Color(0, 0, 0));
         regisBtn.setText("Register");
         regisBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,80 +121,186 @@ public class RegisterPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("PIN Code:");
+
+        pinLbl.setBackground(new java.awt.Color(255, 255, 255));
+        pinLbl.setForeground(new java.awt.Color(0, 0, 0));
+        pinLbl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pinLblActionPerformed(evt);
+            }
+        });
+        pinLbl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pinLblKeyTyped(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Phone Number:");
+
+        phoneLbl.setBackground(new java.awt.Color(255, 255, 255));
+        phoneLbl.setForeground(new java.awt.Color(0, 0, 0));
+        phoneLbl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneLblActionPerformed(evt);
+            }
+        });
+        phoneLbl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneLblKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(55, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(maleBtn)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(femaleBtn))
-                                        .addComponent(jLabel6)
-                                        .addComponent(lblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 340,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(lblBirth, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 340,
-                                                        Short.MAX_VALUE)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblNama, javax.swing.GroupLayout.DEFAULT_SIZE, 340,
-                                                        Short.MAX_VALUE))
-                                        .addComponent(jLabel5))
-                                .addGap(55, 55, 55))
                         .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(140, 140, 140)
-                                                .addComponent(jLabel1))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(160, 160, 160)
-                                                .addComponent(regisBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addGap(41, 41, 41)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(regisBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel8)
+                                                        .addPreferredGap(
+                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(phoneLbl, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                false)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                layout.createSequentialGroup()
+                                                                        .addComponent(jLabel7)
+                                                                        .addGap(50, 50, 50)
+                                                                        .addComponent(pinLbl,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                391,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jLabel6)
+                                                                        .addComponent(jLabel2))
+                                                                .addGap(59, 59, 59)
+                                                                .addComponent(addressLbl))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jLabel4)
+                                                                        .addComponent(jLabel5)
+                                                                        .addComponent(jLabel3))
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                        Short.MAX_VALUE)
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addComponent(emailLbl,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                391,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addGroup(layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(lblBirth,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        389,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                        .addComponent(maleBtn)
+                                                                                        .addPreferredGap(
+                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                        .addComponent(femaleBtn))
+                                                                                .addComponent(lblNama,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        389,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addContainerGap(41, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(208, 208, 208)));
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
+                                .addGap(45, 45, 45)
                                 .addComponent(jLabel1)
-                                .addGap(35, 35, 35)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNama, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(56, 56, 56)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(lblNama, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel2))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lblBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(maleBtn)
-                                        .addComponent(femaleBtn))
+                                        .addComponent(femaleBtn)
+                                        .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(emailLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(addressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(pinLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel7))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(phoneLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
                                 .addComponent(regisBtn)
-                                .addContainerGap(117, Short.MAX_VALUE)));
+                                .addContainerGap(80, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void femaleBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_femaleBtnActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_femaleBtnActionPerformed
+
+    private void pinLblActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pinLblActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_pinLblActionPerformed
+
+    private void pinLblKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_pinLblKeyTyped
+        // TODO add your handling code here:
+        char input = evt.getKeyChar();
+        if ((!Character.isDigit(input)) || (pinLbl.getText().length() > 5)) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_pinLblKeyTyped
+
+    private void phoneLblActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_phoneLblActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_phoneLblActionPerformed
+
+    private void phoneLblKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_phoneLblKeyTyped
+        // TODO add your handling code here:
+        char input = evt.getKeyChar();
+        if ((!Character.isDigit(input)) || (phoneLbl.getText().length() > 11)) {
+            evt.consume();
+        }
+    }// GEN-LAST:event_phoneLblKeyTyped
 
     private void lblPhoneActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_lblPhoneActionPerformed
         // TODO add your handling code here:
@@ -196,34 +323,45 @@ public class RegisterPage extends javax.swing.JFrame {
         String gender = "";
         String birth = ((JTextField) lblBirth.getDateEditor().getUiComponent()).getText();
         String name = lblNama.getText();
-        String address = lblAlamat.getText();
-        String phone = lblPhone.getText();
-
-        if(maleBtn.isSelected()){ 
-            gender = "Male";
-        }else if(femaleBtn.isSelected()){ 
-            gender = "Female";
-        }
-
-        if (lblNama.getText().isEmpty() || lblAlamat.getText().isEmpty() || lblBirth.getDate() == null
-                || lblPhone.getText().isEmpty() || genderBtn.getSelection() == null) {
+        String address = emailLbl.getText();
+        String phone = addressLbl.getText();
+        String email = emailLbl.getText();
+        
+        String inputText = emailLbl.getText();
+        
+        if (lblNama.getText().isEmpty() || emailLbl.getText().isEmpty() || lblBirth.getDate() == null
+        || addressLbl.getText().isEmpty() || genderBtn.getSelection() == null) {
             JOptionPane.showMessageDialog(null, "Masukan Data Dengan Benar");
             return;
         }
 
+        if (maleBtn.isSelected()) {
+            gender = "Male";
+        } else if (femaleBtn.isSelected()) {
+            gender = "Female";
+        }
+
+        if (!inputText.contains("@") && !inputText.contains(".com")) {
+            JOptionPane.showMessageDialog(null, "Masukan Email Dengan Benar");
+            return;
+        }
+        
         if (Conn.isValidRegis(name)) {
-            Conn.insertUser(name, address, birth, phone, gender);
+            pin = Integer.parseInt(pinLbl.getText());
+            Conn.insertUser(pin, name, address, birth, phone, gender, email);
             if (Conn.isBalanceZero()) {
-                new FirstDeposit().setVisible(true);
+                new Deposit().setVisible(true);
+                dispose();
             } else {
                 new Menu().setVisible(true);
+                dispose();
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Nama Sudah Terdaftar");
             return;
         }
     }// GEN-LAST:event_regisBtnActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -268,6 +406,8 @@ public class RegisterPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addressLbl;
+    private javax.swing.JTextField emailLbl;
     private javax.swing.JRadioButton femaleBtn;
     private javax.swing.ButtonGroup genderBtn;
     private javax.swing.JLabel jLabel1;
@@ -276,11 +416,22 @@ public class RegisterPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField lblAlamat;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private com.toedter.calendar.JDateChooser lblBirth;
     private javax.swing.JTextField lblNama;
-    private javax.swing.JTextField lblPhone;
     private javax.swing.JRadioButton maleBtn;
+    private javax.swing.JTextField phoneLbl;
+    private javax.swing.JTextField pinLbl;
     private javax.swing.JButton regisBtn;
+    private static int pin;
+
     // End of variables declaration//GEN-END:variables
+    public static int getPin() {
+        return pin;
+    }
+
+    public static void setPin(int pin) {
+        RegisterPage.pin = pin;
+    }
 }
